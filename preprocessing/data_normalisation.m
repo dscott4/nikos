@@ -1,4 +1,5 @@
-[dataset] = load_npower_data('Round_1_-_Part_1.xlsx');
-dataset = fillmissing(dataset,'linear');
-dataset = (dataset-mean(dataset,1))./std(dataset,1);
-xlswrite('C:\Users\david\Documents\GitHub\nikos\preprocessing\normalised_data.xlsx',dataset)
+function [ norm_dataset,mu,sigma ] = data_normalisation( dataset )
+    mu = mean(dataset,1);
+    sigma = std(dataset,1);
+    norm_dataset = (dataset-mu)./sigma;
+end

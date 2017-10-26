@@ -64,11 +64,11 @@ view(net)
 
 % Plots
 % Uncomment these lines to enable various plots.
-%figure, plotperform(tr)
-%figure, plottrainstate(tr)
-%figure, ploterrhist(e)
-%figure, plotregression(t,y)
-%figure, plotfit(net,x,t)
+figure, plotperform(tr)
+figure, plottrainstate(tr)
+figure, ploterrhist(e)
+figure, plotregression(t,y)
+figure, plotfit(net,x,t)
 
 % Deployment
 % Change the (false) values to (true) to enable the following code blocks.
