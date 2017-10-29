@@ -19,18 +19,30 @@ t = T';
 % 'trainscg' uses less memory. Suitable in low memory situations.
 trainFcn = 'trainbr';  % Bayesian Regularisation.
 
+
 % Create a Fitting Network
+<<<<<<< HEAD
+hiddenLayerSize = [30];
+=======
 %hiddenLayerSize = [8, 8, 8];
 
+>>>>>>> aaeda139597dfc533cb1284ef35110df3f50d996
 net = fitnet(hiddenLayerSize,trainFcn);
-
+net.trainParam.epochs=10000;
 % Choose Input and Output Pre/Post-Processing Functions
 % For a list of all processing functions type: help nnprocess
-net.input.processFcns = {'removeconstantrows','mapminmax'};
-net.output.processFcns = {'removeconstantrows','mapminmax'};
+net.input.processFcns = {'removeconstantrows','mapminmax', 'processpca'};
+net.output.processFcns = {'removeconstantrows','mapminmax', 'processpca'};
 
 % Setup Division of Data for Training, Validation, Testing
 % For a list of all data division functions type: help nndivision
+<<<<<<< HEAD
+net.divideFcn = 'dividerand';  % Divide data randomly
+net.divideMode = 'sample';  % Divide up every sample
+net.divideParam.trainRatio = 85/100;
+net.divideParam.valRatio = 0/100;
+net.divideParam.testRatio = 15/100;
+=======
 
 
 net.divideFcn = 'divideind';  % Divide data by indices
@@ -38,6 +50,7 @@ net.divideFcn = 'divideind';  % Divide data by indices
 net.divideParam.trainInd = 1:(m-100);
 net.divideParm.valInd = null;
 net.divideParam.testInd = (m-100):m;
+>>>>>>> aaeda139597dfc533cb1284ef35110df3f50d996
 
 % Choose a Performance Function
 % For a list of all performance functions type: help nnperformance
