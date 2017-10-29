@@ -6,14 +6,15 @@ dataset = dataset';
 x = [1:1:n];
 r = (1/(pts+1));
 xx = 1:r:n;
+
 if strcmp(type,'cubic')
-    hello
+    dataset_large = spline(x,dataset,xx);
 elseif strcmp(type,'pchip')
-    hello
+    dataset_large = pchip(x,dataset,xx);
 elseif strcmp(type,'linear')
+    dataset_large = interp1q(x,dataset,xx);
 else
     error('Incorrect Interpolation Type');
 end
-dataset_large = spline(x,dataset,xx);
 dataset_large = dataset_large';
 end

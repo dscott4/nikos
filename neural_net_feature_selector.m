@@ -4,7 +4,7 @@ X(:,8) = []; %Comment me out
 
 [m,n] = size(X);
 T = dataset(:,end);
-rmse = zeros(1,max_nets);
+rmse = zeros(1,n);
 trainRatio = 0.7;
 hiddenLayerSize = 10;
 figure
