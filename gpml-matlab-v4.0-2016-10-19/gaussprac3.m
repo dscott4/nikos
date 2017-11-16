@@ -1,14 +1,15 @@
 
 % x=dataset(trainInd,1:10);
 % y=dataset(trainInd,11);
-% % xs=dataset(testInd,1:10);
-% % ys=dataset(testInd,11);
+xs=X(testInd,1:10);
+ys=y(testInd,1);
 % xs=dataset(:,1:10);
 % ys=dataset(:,11);
-x=dataset(1:500,1:10);
-y=dataset(1:500,11);
-xs=dataset(500:731,1:10);
-ys=dataset(500:731,11);
+%x=dataset(1:500,1:10);
+%y=dataset(1:500,11);
+x = X;
+%xs=dataset(500:731,1:10);
+%ys=dataset(500:731,11);
 x(:,1)=[];
 xs(:,1)=[];
 x(:,5:6)=[];
