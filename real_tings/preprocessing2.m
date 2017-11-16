@@ -35,7 +35,5 @@ end
 
 clear data_locations
 clear dataset
-clear mu
-clear sigma
 clear mode
 clear interp_pts
