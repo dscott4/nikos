@@ -1,6 +1,10 @@
-x=dataset(:,1:10);
-y=dataset(:,11);
-xs=dataset2(:,1:10);
+x=X;
+y=y;
+xs=X_pred;
+% x=X(1:500,1:10);
+% Y=y(1:500, :);
+% xs=X(501:731, 1:10);
+% ys=y(501:731, :);
 x(:,1)=[];
 xs(:,1)=[];
 x(:,5:6)=[];
@@ -20,6 +24,7 @@ xs(:,5:6)=[];
     
     meanfunc=[];
     covfunc=@covSEiso;
+%     covfunc = {@covMaterniso, 3}; ell = 1/4; sf = 1; hyp.cov = log([ell; sf]);
     likfunc=@likGauss;
     hyp = struct('mean', [], 'cov', [0 0], 'lik', -1);
     hyp2 = minimize(hyp, @gp, -100, @infGaussLik, meanfunc, covfunc, likfunc, x, y);
@@ -33,7 +38,7 @@ xs(:,5:6)=[];
 % plot(t,y)
 % hold on
 % plot(t,m,'y')
- err=immse(m,ys)
+%err=immse(m(1:731),y)
 
 
 figure(1)
@@ -41,8 +46,8 @@ hold on;
     f = [m+2*sqrt(s2); flipdim(m-2*sqrt(s2),1)];
     x = [1:length(m)];
     fill([x'; flipdim(x',1)], f, [7 7 7]/8);
-    plot(ys)
-    plot(m)
+    plot(y)
+    plot(m,'b')
 
 xlabel('Sample points')
 ylabel('Second component')
