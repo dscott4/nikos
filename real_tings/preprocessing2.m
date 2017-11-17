@@ -1,9 +1,10 @@
-data_locations = 'Round 1 Data FC.xlsx';
+data_locations = 'Round 2 Data FC.xlsx';
 mode = 1;
+pts = 914;
 [dataset] = load_npower_data(data_locations);
 
 if mode == 1
-    dataset = dataset(1:731,:);
+    dataset = dataset(1:pts,:);
 else
     dataset = dataset(1:500,:);
 end
@@ -21,7 +22,7 @@ interp_pts = 0; %Set to 0 if no interpolation
 [dataset] = load_npower_data(data_locations);
 
 if mode == 1
-    dataset = dataset(732:end,:);
+    dataset = dataset((pts+1):end,:);
     [dataset] = time_series_addition(dataset,1*(interp_pts+1),2012);
     [dataset] = data_normalisation_predictors(dataset,mu,sigma);
     [X_pred] = dataset(:,1:(end-1));
