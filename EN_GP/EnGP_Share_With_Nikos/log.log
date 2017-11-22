@@ -1,0 +1,26 @@
+* 841f770 : Multiple updates to functionality, improvements to optimisation routines and predictions, cleared up all solve_chol inconsistencies
+* 5ec1bb9 : Polynomial kernel working for non-ARD inputs Check for negative variance needs adding
+* dd33784 : Added Matern12 and 52 kernels (not finished), work on polynomial
+* 8413d25 : Added Matern32 and Polynomial kernel options
+* 924f995 : gp_plot function added
+* e3f739c : Plotting for multiple predictions (NARX all case)
+* d90d01a : Work on normalisation, still not quite there NARX model now working Plotting function updated for osa and mpo Fixed unnecessary printing to console (always supress with ";" !!!)
+* 18858b4 : Allow setting of hyps with process Made private Process, Model, Data => must be accessed through EnGP setter methods
+* 5ad5295 : Added assess_loglike for use inside optimisers
+* 0c2ac4a : CG working SD needs syntax updating QPSO working as expected Need to sort normalisation (big affect on prediction quality)
+* 7c483ae : Added steepest descent and conjugate gradient optimisation to test optimiser
+* 324f75c : Optmisation is broken NARX MPO Prediction added Do Not trust results
+* debfc63 : Added model to test one step ahead on VUB Tanks Data
+* 4300b62 : Fixed Optimisation (wasn't updating hyperparameters...)
+* 438bf62 : Sorting tmp files
+* 2d16392 : Added .gitignore for Matlab temp files
+* 7d77d6e : Added set_process_data and set_model_data to repo
+* 6385543 : Updated all classes for consistent inputs/target notation Began NARX model
+*   12a95c0 : Fixed test_model conflict
+[32m|[m[33m\[m  
+[32m|[m * 5b980db : Wrappers to access subproperties in EnGP Added NARX model (not finished) Added plot function for EnGP (needs multidimensional plotting)
+* [33m|[m e6faa5c : Demo for Paul
+* [33m|[m c0ffd53 : Work on bracketing function for CG
+[33m|[m[33m/[m  
+* c72373e : Added hyperparamter wrapping, unwrapping Started CG optimiser test_model now assesses ability to predict a GP that was used as a generative model Better process/kernel/data handling
+* e30d841 : Initial EnGP Commit

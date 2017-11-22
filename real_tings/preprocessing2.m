@@ -1,8 +1,25 @@
-data_locations = 'Round 2 Data FC.xlsx';
-mode = 1;
-pts = 914;
+data_locations = 'Round 3 Data FC.xlsx';
+mode = 'test';
+pts = 1096;
+
 [dataset] = load_npower_data(data_locations);
 
+if strcmp(mode,'test')
+    dataset = dataset(1:pts,:);
+    [dataset,mu,sigma] = data_normalisation(dataset);
+    [X,y] = data_separation(dataset);
+    [dataset] = load_npower_data(data_locations);
+    X_pred = dataset((pts+1):end,1:9);
+    [X_pred] = data_normalisation_predictors(X_pred,mu(:,1:(end-1)),sigma(:,1:(end-1)));
+else
+    %lol
+end
+
+
+
+
+%[dataset] = load_npower_data(data_locations);
+%{
 if mode == 1
     dataset = dataset(1:pts,:);
 else
@@ -12,7 +29,7 @@ end
 interp_pts = 0; %Set to 0 if no interpolation
 %[dataset] = interpolant_creator(dataset,interp_pts,'cubic');
 
-[dataset] = time_series_addition(dataset,1*(interp_pts+1),2012);
+%[dataset] = time_series_addition(dataset,1*(interp_pts+1),2012);
 [dataset,mu,sigma] = data_normalisation(dataset);
 
 %[ R,cov ] = correlation_covariance(dataset,true);
@@ -34,6 +51,7 @@ else
     [y_out] = dataset(:,11);
 end
 
+%}
 clear data_locations
 clear dataset
 clear mode
