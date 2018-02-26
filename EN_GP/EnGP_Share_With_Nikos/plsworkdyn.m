@@ -10,13 +10,13 @@ hyps.sn2 = 0.01;
 % xlabel('X')
 % ylabel('Y')
 % title('Target Function Drawn from GP')#
-Y_pred=zeros(length(X_pred),1);
+Y_pred=zeros(length(X_test),1);
 gp = EnGP();
-gp.set_data(X,y);
+gp.set_data(X_train,y_train);
 % gp.predict_on(X_pred);
-gp.set_data(X_pred,Y_pred,'test');
+gp.set_data(X_test,Y_pred,'test');
 % gp.set_model(@Static);
-gp.set_model(@NARX,7,7,1,1);
+gp.set_model(@NARX,2,2,1,1);
 gp.set_process(@GPR,Kernel('Matern52',hyps));
 gp.props.optimiser = 'QPSO';
 gp.optimise();
