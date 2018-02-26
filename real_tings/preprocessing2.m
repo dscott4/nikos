@@ -1,11 +1,8 @@
 data_locations = 'Round 3 Data FC.xlsx';
-<<<<<<< HEAD
+
 mode = 'test';
-=======
+
 mode = 'final';
-
-
->>>>>>> b427885407ea652c691b4fd14d04d8671fe1f90c
 [dataset] = load_npower_data(data_locations);
 
 if strcmp(mode,'final')
