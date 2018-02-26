@@ -27,7 +27,6 @@ data.inputs = [xp];
 %data.target = y;
 gp.predict('test');
 gp.props.plot_type = 'output';
-gp.plot();
 
 % figure
 % plot(x,y)

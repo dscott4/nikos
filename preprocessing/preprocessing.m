@@ -1,4 +1,4 @@
-data_locations = 'Round 1 Data FC.xlsx';
+data_locations = 'Round 3 Data FC.xlsx';
 [dataset] = load_npower_data(data_locations);
 dataset(:,8) = [];
 interp_pts = 0; %Set to 0 if no interpolation
