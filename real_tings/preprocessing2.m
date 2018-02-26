@@ -1,5 +1,5 @@
 data_locations = 'Round 3 Data FC.xlsx';
-mode = 'test';
+mode = 'final';
 
 
 [dataset] = load_npower_data(data_locations);
@@ -19,8 +19,8 @@ elseif strcmp(mode,'test')
     [dataset,mu,sigma] = data_normalisation(dataset);
     [X,y] = data_separation(dataset);
     [dataset] = load_npower_data(data_locations);
-    dataset = dataset((pts1+1):pts2,1:9);
-    [dataset] = data_normalisation_predictors(X_pred,mu,sigma);
+    dataset = dataset((pts1+1):pts2,:);
+    [dataset] = data_normalisation_predictors(dataset,mu,sigma);
     [X_pred,Y_out] = data_separation(dataset);
 end
 

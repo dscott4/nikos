@@ -16,13 +16,15 @@ gp.set_data(X,y);
 % gp.predict_on(X_pred);
 gp.set_data(X_pred,Y_pred,'test');
 % gp.set_model(@Static);
-gp.set_model(@NARX,3,3,1,1);
+gp.set_model(@NARX,7,7,1,1);
 gp.set_process(@GPR,Kernel('Matern52',hyps));
 gp.props.optimiser = 'QPSO';
 gp.optimise();
 gp.predict('test')
-gp.process.mp
+gp.process.mp;
 gp.process.vp
+m=gp.process.mp;
+m(:,1)=[];
 % figure
 % gp.process.nmse
 % repmu=repmat(mu(:,11),[184,2]);
